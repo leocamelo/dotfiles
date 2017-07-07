@@ -1,0 +1,8 @@
+[core]
+  editor = vim
+[push]
+  default = current
+[alias]
+  aa = add --all
+  co = checkout
+  st = status -s
