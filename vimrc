@@ -37,6 +37,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'yggdroot/indentline'
 
 call vundle#end()
 filetype plugin indent on
