@@ -14,6 +14,8 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+set clipboard=unnamed
+
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
@@ -38,6 +40,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'yggdroot/indentline'
+Plugin 'slashmili/alchemist.vim'
 
 call vundle#end()
 filetype plugin indent on
