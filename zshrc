@@ -25,3 +25,7 @@ alias android-build="cd android && ./gradew assembleRelease"
 alias android-server="adb reverse tcp:8081 tcp:8081"
 
 alias resque="QUEUE=* rake resque:work"
+
+ssh-tmux () {
+  ssh $1 -t -- /bin/bash -c 'tmux has && exec tmux attach || exec tmux'
+}
