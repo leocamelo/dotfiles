@@ -4,7 +4,7 @@ export ZSH="~/.oh-my-zsh"
 ZSH_THEME="agnoster"
 DEFAULT_USER="leocamelo"
 
-plugins=(git rails rvm sublime pow)
+plugins=(git rails rvm sublime)
 
 source $ZSH/oh-my-zsh.sh
 
