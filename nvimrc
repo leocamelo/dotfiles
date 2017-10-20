@@ -1,14 +1,13 @@
 set number
 set nowrap
 set nojoinspaces
-set colorcolumn=80
+set colorcolumn=81
 
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
 
-set mouse=a
 set clipboard=unnamedplus
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -18,8 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'roxma/nvim-completion-manager'
-Plug 'scrooloose/nerdtree'
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-endwise'
 Plug 'vim-ruby/vim-ruby'
@@ -29,6 +27,8 @@ Plug 'slashmili/alchemist.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ElmCast/elm-vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 if has('termguicolors')
@@ -47,9 +47,27 @@ let g:airline_theme='oceanicnext'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
-let NERDTreeShowHidden=1
+let g:deoplete#enable_at_startup=1
 
+let NERDTreeShowHidden=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+let NERDTreeQuitOnOpen=1
+
+nm <Up> :echo 'Press k!'<CR>
+nm <Down> :echo 'Press j!'<CR>
+nm <Left> :echo 'Press h!'<CR>
+nm <Right> :echo 'Press l!'<CR>
+
+nm <C-q> :q<CR>
+nm <C-s> :w<CR>
 nm <C-k> :NERDTreeToggle<CR>
 
+nm <C-n> :enew<CR>
+nm <C-w> :bp\|bd #<CR>
 nm <C-h> :bp<CR>
 nm <C-l> :bn<CR>
+
+augroup NERDTree
+  autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+augroup END
