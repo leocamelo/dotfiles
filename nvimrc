@@ -54,10 +54,10 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeQuitOnOpen=1
 
-nm <Up> :echo 'Press k!'<CR>
-nm <Down> :echo 'Press j!'<CR>
-nm <Left> :echo 'Press h!'<CR>
-nm <Right> :echo 'Press l!'<CR>
+nm <Up> :echo 'Press <k>!'<CR>
+nm <Down> :echo 'Press <j>!'<CR>
+nm <Left> :echo 'Press <h>!'<CR>
+nm <Right> :echo 'Press <l>!'<CR>
 
 nm <C-q> :q<CR>
 nm <C-s> :w<CR>
