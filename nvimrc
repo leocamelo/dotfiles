@@ -52,19 +52,16 @@ let g:deoplete#enable_at_startup=1
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
-let NERDTreeQuitOnOpen=1
 
 nm <Up> :echo 'Press <k>!'<CR>
 nm <Down> :echo 'Press <j>!'<CR>
 nm <Left> :echo 'Press <h>!'<CR>
 nm <Right> :echo 'Press <l>!'<CR>
 
-nm <C-q> :q<CR>
-nm <C-s> :w<CR>
 nm <C-k> :NERDTreeToggle<CR>
 
 nm <C-n> :enew<CR>
-nm <C-w> :bp\|bd #<CR>
+nm <C-q> :bp\|bd #<CR>
 nm <C-h> :bp<CR>
 nm <C-l> :bn<CR>
 
