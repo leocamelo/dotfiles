@@ -29,6 +29,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ElmCast/elm-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 if has('termguicolors')
