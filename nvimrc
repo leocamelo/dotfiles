@@ -2,6 +2,7 @@ set number
 set nowrap
 set nojoinspaces
 set colorcolumn=81
+set cursorline
 
 set tabstop=2
 set shiftwidth=2
@@ -30,6 +31,7 @@ Plug 'ElmCast/elm-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 if has('termguicolors')
