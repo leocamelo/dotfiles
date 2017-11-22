@@ -9,7 +9,7 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-set clipboard=unnamedplus
+set autoread
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhartington/oceanic-next'
@@ -32,6 +32,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
+Plug 'neomake/neomake'
 call plug#end()
 
 if has('termguicolors')
@@ -69,5 +70,9 @@ nm <C-h> :bp<CR>
 nm <C-l> :bn<CR>
 
 augroup NERDTree
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
   autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 augroup END
+
+call neomake#configure#automake('nw', 750)
