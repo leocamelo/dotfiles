@@ -40,7 +40,7 @@ endif
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
-  let g:ctrlp_user_command='ag -Q -l --nocolor --hidden -g "" %s'
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching=0
 endif
 
