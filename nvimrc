@@ -3,16 +3,15 @@ set nowrap
 set nojoinspaces
 set colorcolumn=81
 set cursorline
+set autoread
 
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
 
-set autoread
-
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'mhartington/oceanic-next'
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
@@ -45,9 +44,10 @@ if executable('ag')
   let g:ctrlp_use_caching=0
 endif
 
-colorscheme OceanicNext
+colorscheme one
+set background=dark
 
-let g:airline_theme='oceanicnext'
+let g:airline_theme='one'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
