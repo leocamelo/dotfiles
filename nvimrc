@@ -31,7 +31,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 call plug#end()
 
 if has('termguicolors')
@@ -65,14 +65,17 @@ nm <Right> :echo 'Press <l>!'<CR>
 nm <C-k> :NERDTreeToggle<CR>
 
 nm <C-n> :enew<CR>
-nm <C-q> :bp\|bd #<CR>
+nm <C-q> :call CloseBuffer()<CR>
 nm <C-h> :bp<CR>
 nm <C-l> :bn<CR>
+
+function CloseBuffer()
+  let bufs = filter(range(1, bufnr('$')), 'buflisted(v:val)')
+  if len(bufs) == 1 | bd | else | bp | bd # | endif
+endfunction
 
 augroup NERDTree
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-  autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+  autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 augroup END
-
-call neomake#configure#automake('nw', 750)
