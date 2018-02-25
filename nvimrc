@@ -32,6 +32,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 if has('termguicolors')

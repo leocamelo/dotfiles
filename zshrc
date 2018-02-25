@@ -22,8 +22,8 @@ alias sshconfig="vim ~/.ssh/config"
 # alias au="sudo apt update && sudo apt upgrade -y --allow-unauthenticated && sudo apt autoremove"
 
 alias rn="react-native"
-alias android-build="cd android && ./gradew assembleRelease"
-alias android-server="adb reverse tcp:8081 tcp:8081"
+alias rn-android-build="cd android && ./gradew assembleRelease"
+alias rn-android-server="adb reverse tcp:8081 tcp:8081"
 
 alias resque="QUEUE=* rake resque:work"
 

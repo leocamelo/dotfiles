@@ -6,3 +6,4 @@
   aa = add --all
   co = checkout
   st = status -s
+  cm = commit -m
