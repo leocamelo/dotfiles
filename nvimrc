@@ -26,13 +26,13 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'elmcast/elm-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 if has('termguicolors')
