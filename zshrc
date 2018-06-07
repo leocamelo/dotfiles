@@ -1,4 +1,3 @@
-# export PATH="$PATH"
 export ZSH="~/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
@@ -20,12 +19,6 @@ alias sshconfig="vim ~/.ssh/config"
 
 # alias bu="brew update && brew upgrade && brew cleanup"
 # alias au="sudo apt update && sudo apt upgrade -y --allow-unauthenticated && sudo apt autoremove"
-
-alias rn="react-native"
-alias rn-android-build="cd android && ./gradew assembleRelease"
-alias rn-android-server="adb reverse tcp:8081 tcp:8081"
-
-alias resque="QUEUE=* rake resque:work"
 
 ssh-tmux () {
   ssh $1 -t -- /bin/bash -c 'tmux has && exec tmux attach || exec tmux'
