@@ -1,23 +1,31 @@
+syntax enable
+filetype plugin indent on
+
+set nocompatible
+set autoindent
+set autoread
+set backspace=2
+set laststatus=2
+set wildmenu
+
 set number
 set nowrap
 set nojoinspaces
 set colorcolumn=81
 set cursorline
-set autoread
 
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
 
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'rakr/vim-one'
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'yggdroot/indentline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-endwise'
 Plug 'vim-ruby/vim-ruby'
@@ -33,11 +41,9 @@ Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'Valloric/YouCompleteMe'
+Plug 'elzr/vim-json'
 call plug#end()
-
-if has('termguicolors')
-  set termguicolors
-endif
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
@@ -45,14 +51,13 @@ if executable('ag')
   let g:ctrlp_use_caching=0
 endif
 
-colorscheme one
 set background=dark
+colorscheme solarized
 
-let g:airline_theme='one'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 
-let g:deoplete#enable_at_startup=1
+let g:vim_json_syntax_conceal=0
 
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
@@ -66,7 +71,7 @@ nm <Right> :echo 'Press <l>!'<CR>
 nm <C-k> :NERDTreeToggle<CR>
 
 nm <C-n> :enew<CR>
-nm <C-q> :call CloseBuffer()<CR>
+nm <C-j> :call CloseBuffer()<CR>
 nm <C-h> :bp<CR>
 nm <C-l> :bn<CR>
 
