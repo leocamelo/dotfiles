@@ -5,7 +5,6 @@ set nocompatible
 set autoindent
 set autoread
 set backspace=2
-set laststatus=2
 set wildmenu
 
 set number
