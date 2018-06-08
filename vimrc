@@ -42,12 +42,16 @@ Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json'
+Plug 'mhinz/vim-grepper'
 call plug#end()
 
 if executable('ag')
   set grepprg=ag\ --vimgrep
+
   let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching=0
+
+  nm <C-f> :Grepper -tool ag<CR>
 endif
 
 set background=dark
