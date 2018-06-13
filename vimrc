@@ -40,9 +40,9 @@ Plug 'mattn/emmet-vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'Valloric/YouCompleteMe'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-grepper'
+Plug 'maralla/completor.vim'
 call plug#end()
 
 if executable('ag')
