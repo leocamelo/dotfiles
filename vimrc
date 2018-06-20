@@ -19,9 +19,11 @@ set shiftround
 set expandtab
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'maralla/completor.vim'
 Plug 'yggdroot/indentline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
@@ -42,7 +44,7 @@ Plug 'tpope/vim-surround'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-grepper'
-Plug 'maralla/completor.vim'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 if executable('ag')
