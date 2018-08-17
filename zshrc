@@ -23,3 +23,7 @@ alias sshconfig="$EDITOR ~/.ssh/config"
 ssh-tmux () {
   ssh $1 -t -- /bin/bash -c 'tmux has && exec tmux attach || exec tmux'
 }
+
+clip () {
+  cat $1 | xclip -sel clip
+}
