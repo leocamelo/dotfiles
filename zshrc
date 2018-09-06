@@ -1,9 +1,9 @@
-export ZSH="~/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="agnoster"
 DEFAULT_USER="leocamelo"
 
-plugins=(git rails rvm sublime)
+plugins=(git rails rvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,7 +18,7 @@ alias vimconfig="$EDITOR ~/.vimrc"
 alias sshconfig="$EDITOR ~/.ssh/config"
 
 # alias bu="brew update && brew upgrade && brew cleanup"
-# alias au="sudo apt-get update && sudo apt-get upgrade -y && sudo apt autoremove"
+# alias au="sudo apt update && sudo apt upgrade -y && sudo apt autoremove"
 
 ssh-tmux () {
   ssh $1 -t -- /bin/bash -c 'tmux has && exec tmux attach || exec tmux'
