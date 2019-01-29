@@ -12,6 +12,7 @@ set nowrap
 set nojoinspaces
 set colorcolumn=81
 set cursorline
+set hlsearch
 
 set tabstop=2
 set shiftwidth=2
@@ -45,6 +46,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-grepper'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tbastos/vim-lua'
 call plug#end()
 
 if executable('ag')
@@ -67,6 +69,9 @@ let g:vim_json_syntax_conceal=0
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
+
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
 
 nm <Up> :echo 'Press <k>!'<CR>
 nm <Down> :echo 'Press <j>!'<CR>
