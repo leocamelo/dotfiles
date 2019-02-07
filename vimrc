@@ -32,7 +32,7 @@ set autoindent
 set smartindent
 
 if has('persistent_undo')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  silent !mkdir -p ~/.vim/backups
   set undodir=~/.vim/backups
   set undofile
 endif
