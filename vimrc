@@ -24,10 +24,18 @@ set smartcase
 
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
 set shiftround
 set expandtab
+set smarttab
 set autoindent
 set smartindent
+
+if has('persistent_undo')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
@@ -57,6 +65,7 @@ call plug#end()
 
 set background=dark
 colorscheme solarized
+let g:solarized_termtrans=1
 
 let g:lightline={'colorscheme':'solarized'}
 
