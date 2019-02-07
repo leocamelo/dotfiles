@@ -3,8 +3,10 @@ filetype plugin indent on
 
 set nocompatible
 set autoread
+set autowriteall
 set backspace=2
 set wildmenu
+set hidden
 
 set number
 set nowrap
@@ -31,18 +33,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
-Plug 'w0rp/ale'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-endwise'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-fugitive'
 Plug 'maralla/completor.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-endwise'
 Plug 'elzr/vim-json'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
@@ -58,9 +60,10 @@ colorscheme solarized
 
 let g:lightline={'colorscheme':'solarized'}
 
-let g:vim_json_syntax_conceal=0
+let g:fzf_buffers_jump=1
 
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeIgnore=['\.swp$']
@@ -71,25 +74,27 @@ let g:NERDDefaultAlign='left'
 let g:ale_lint_on_text_changed=0
 let g:ale_lint_on_save=1
 
+let g:vim_json_syntax_conceal=0
+
 nm <Up> :echo 'Press <k>!'<CR>
 nm <Down> :echo 'Press <j>!'<CR>
 nm <Left> :echo 'Press <h>!'<CR>
 nm <Right> :echo 'Press <l>!'<CR>
 
+nm <CR><CR> :noh<CR>
 nm <C-k> :NERDTreeToggle<CR>
-nm <C-h> :noh<CR>
-nm <C-p> :FZF<CR>
+
+nm <C-p> :Files<CR>
+nm <C-b> :Buffers<CR>
 
 if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files --hidden'
-  nm <C-f> :Rg<space>
+  nm <C-f> :Grepper -tool rg<CR>
 elseif executable('ag')
-  let $FZF_DEFAULT_COMMAND='ag -l --hidden'
-  nm <C-f> :Ag<space>
+  let $FZF_DEFAULT_COMMAND='ag -l -g "" --hidden --no-color --ignore .git'
+  nm <C-f> :Grepper -tool ag<CR>
 endif
 
 augroup NERDTree
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
   autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 augroup END
