@@ -45,7 +45,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
+Plug 'justinmk/vim-dirvish'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'maralla/completor.vim'
@@ -71,12 +71,6 @@ let g:lightline={'colorscheme':'solarized'}
 
 let g:fzf_buffers_jump=1
 
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
-let NERDTreeIgnore=['\.swp$']
-
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
 
@@ -85,25 +79,26 @@ let g:ale_lint_on_save=1
 
 let g:vim_json_syntax_conceal=0
 
-nm <Up> :echo 'Press <k>!'<CR>
-nm <Down> :echo 'Press <j>!'<CR>
-nm <Left> :echo 'Press <h>!'<CR>
-nm <Right> :echo 'Press <l>!'<CR>
+nmap <Up> :echo 'Press <k>!'<CR>
+nmap <Down> :echo 'Press <j>!'<CR>
+nmap <Left> :echo 'Press <h>!'<CR>
+nmap <Right> :echo 'Press <l>!'<CR>
 
-nm <CR><CR> :noh<CR>
-nm <C-k> :NERDTreeToggle<CR>
+nmap <CR><CR> :noh<CR>
+nmap <C-k> :Dirvish<CR>
 
-nm <C-p> :Files<CR>
-nm <C-b> :Buffers<CR>
+nmap <C-p> :Files<CR>
+nmap <C-b> :Buffers<CR>
 
 if executable('rg')
   let $FZF_DEFAULT_COMMAND='rg --files --hidden'
-  nm <C-f> :Grepper -tool rg<CR>
+  nmap <C-f> :Grepper -tool rg<CR>
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND='ag -l -g "" --hidden --no-color --ignore .git'
-  nm <C-f> :Grepper -tool ag<CR>
+  nmap <C-f> :Grepper -tool ag<CR>
 endif
 
-augroup NERDTree
-  autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+augroup dirvish_config
+  autocmd!
+  autocmd FileType dirvish silent! unmap <buffer> <C-p>
 augroup END
