@@ -31,6 +31,8 @@ set smarttab
 set autoindent
 set smartindent
 
+set noswapfile
+
 if has('persistent_undo')
   call system('mkdir -p ~/.vim/backups')
   set undodir=~/.vim/backups
@@ -46,7 +48,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-gitgutter'
 Plug 'justinmk/vim-dirvish'
-Plug 'tpope/vim-eunuch'
+Plug 'dncnmcdougall/vim-eunuch'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'maralla/completor.vim'
@@ -92,7 +94,7 @@ nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
 
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND='rg --files --hidden'
+  let $FZF_DEFAULT_COMMAND='rg --files --hidden --color never -g "!.git/"'
   nmap <C-f> :Grepper -tool rg<CR>
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND='ag -l -g "" --hidden --no-color --ignore .git'
