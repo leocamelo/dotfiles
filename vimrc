@@ -31,6 +31,9 @@ set smarttab
 set autoindent
 set smartindent
 
+set foldmethod=syntax
+set foldlevel=99
+
 set noswapfile
 
 if has('persistent_undo')
@@ -93,6 +96,7 @@ nmap <Right> :echo 'Press <l>!'<CR>
 
 nmap <CR><CR> :noh<CR>
 nmap <C-k> :NERDTreeToggle<CR>
+nmap <space> za
 
 nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
@@ -109,5 +113,5 @@ augroup NERDTree
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-  autocmd bufenter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 augroup END
