@@ -43,7 +43,7 @@ if has('persistent_undo')
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -69,10 +69,9 @@ Plug 'tbastos/vim-lua'
 call plug#end()
 
 set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+colorscheme gruvbox
 
-let g:lightline={'colorscheme':'solarized'}
+let g:lightline={'colorscheme':'gruvbox'}
 
 let g:fzf_buffers_jump=1
 
