@@ -46,7 +46,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-gitgutter'
@@ -71,22 +71,21 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-let g:lightline={'colorscheme':'gruvbox'}
+let g:lightline = {'colorscheme': 'gruvbox'}
 
-let g:fzf_buffers_jump=1
+let g:fzf_buffers_jump = 1
 
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeAutoDeleteBuffer=1
-let NERDTreeMinimalUI=1
+let NERDTreeShowHidden = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
 
-let g:NERDSpaceDelims=1
-let g:NERDDefaultAlign='left'
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
-let g:ale_lint_on_text_changed=0
-let g:ale_lint_on_save=1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
 
-let g:vim_json_syntax_conceal=0
+let g:vim_json_syntax_conceal = 0
 
 nmap <Up> :echo 'Press <k>!'<CR>
 nmap <Down> :echo 'Press <j>!'<CR>
@@ -101,16 +100,19 @@ nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
 
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND='rg --files --hidden --color never -g "!.git/"'
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --color never -g "!.git/"'
   nmap <C-f> :Grepper -tool rg<CR>
+  nmap <C-h> :Grepper -tool rg -cword -noprompt<CR>
 elseif executable('ag')
-  let $FZF_DEFAULT_COMMAND='ag -l -g "" --hidden --no-color --ignore .git'
+  let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --hidden --no-color --ignore .git'
   nmap <C-f> :Grepper -tool ag<CR>
+  nmap <C-h> :Grepper -tool ag -cword -noprompt<CR>
 endif
 
 augroup NERDTree
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+  autocmd BufReadPost,FileReadPost * if &ft !=# 'qf' && exists('g:NERDTree') && g:NERDTree.IsOpen() | :NERDTreeClose | endif
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 augroup END
