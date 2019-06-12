@@ -112,7 +112,7 @@ endif
 augroup NERDTree
   autocmd!
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
   autocmd BufReadPost,FileReadPost * if &ft !=# 'qf' && exists('g:NERDTree') && g:NERDTree.IsOpen() | :NERDTreeClose | endif
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
 augroup END
