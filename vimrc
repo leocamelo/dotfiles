@@ -57,15 +57,17 @@ Plug 'maralla/completor.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
-Plug 'elzr/vim-json'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'tbastos/vim-lua'
+
+Plug 'elzr/vim-json',           {'for': 'json'}
+Plug 'vim-ruby/vim-ruby',       {'for': 'ruby'}
+Plug 'tpope/vim-rails',         {'for': 'ruby'}
+Plug 'elixir-lang/vim-elixir',  {'for': 'elixir'}
+Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'mxw/vim-jsx',             {'for': 'javascript'}
+Plug 'tbastos/vim-lua',         {'for': 'lua'}
 call plug#end()
 
 set background=dark
@@ -84,6 +86,14 @@ let g:NERDDefaultAlign = 'left'
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
+let g:ale_elixir_credo_strict = 1
+
+let g:completor_complete_options = 'menuone,noselect'
+let g:completor_ruby_omni_trigger = '([$\w]{1,}|\.[\w]*|::[$\w]*)$'
+let g:completor_python_binary = 'python3'
+
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
 
 let g:vim_json_syntax_conceal = 0
 
