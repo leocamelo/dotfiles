@@ -1,9 +1,13 @@
 [core]
   editor = vim
+  excludesfile = ~/.gitignore_global
 [push]
   default = current
 [alias]
-  aa = add --all
+  aa = add -A
   co = checkout
   st = status -s
   cm = commit -m
+[user]
+  email = leonardocamelo.nave@gmail.com
+  name = leocamelo
