@@ -1,6 +1,7 @@
 syntax enable
 filetype plugin indent on
 
+set encoding=utf-8
 set nocompatible
 set autoread
 set autowriteall
@@ -8,6 +9,7 @@ set backspace=2
 set wildmenu
 set hidden
 
+set title
 set number
 set nowrap
 set nojoinspaces
@@ -21,6 +23,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set gdefault
 
 set tabstop=2
 set shiftwidth=2
@@ -34,11 +37,11 @@ set smartindent
 set foldmethod=syntax
 set foldlevel=99
 
-set noswapfile
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
 
 if has('persistent_undo')
-  call system('mkdir -p ~/.vim/backups')
-  set undodir=~/.vim/backups
+  set undodir=~/.vim/undo
   set undofile
 endif
 
@@ -84,6 +87,8 @@ let NERDTreeMinimalUI = 1
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
+let g:gutentags_cache_dir = '~/.ctags'
+
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
@@ -97,10 +102,10 @@ let g:rubycomplete_classes_in_global = 1
 
 let g:vim_json_syntax_conceal = 0
 
-nmap <Up> :echo 'Press <k>!'<CR>
-nmap <Down> :echo 'Press <j>!'<CR>
-nmap <Left> :echo 'Press <h>!'<CR>
-nmap <Right> :echo 'Press <l>!'<CR>
+map <Up> :echo 'Press <k>!'<CR>
+map <Down> :echo 'Press <j>!'<CR>
+map <Left> :echo 'Press <h>!'<CR>
+map <Right> :echo 'Press <l>!'<CR>
 
 nmap <CR><CR> :noh<CR>
 nmap <C-k> :NERDTreeToggle<CR>

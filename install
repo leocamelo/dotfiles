@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for file in *; do
+  if [ "$file" != "install" ]; then
+    echo "$file"
+    cp "$file" "$HOME/.$file"
+  fi
+done
+
+for dir in backups swaps undo; do
+  mkdir -p "$HOME/.vim/$dir"
+done
