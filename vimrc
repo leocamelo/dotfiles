@@ -37,6 +37,8 @@ set smartindent
 set foldmethod=syntax
 set foldlevel=99
 
+set complete-=i
+
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 
