@@ -48,6 +48,8 @@ venv () {
 }
 
 requirements () {
+  pip install --upgrade pip
+
   for group in "-dev" ""; do
     if [ -f requirements${group}.txt ]; then
       pip install -r requirements${group}.txt
