@@ -44,6 +44,7 @@ venv () {
   if [ ! -d venv ]; then
     python3 -m venv venv
   fi
+
   source venv/bin/activate
 }
 
@@ -55,4 +56,8 @@ requirements () {
       pip install -r requirements${group}.txt
     fi
   done
+}
+
+epub () {
+  pandoc -f epub -t html "$1" | elinks -dump -dump-color-mode 1 | less -R
 }
