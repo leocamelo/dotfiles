@@ -38,6 +38,7 @@ set foldmethod=syntax
 set foldlevel=99
 
 set complete-=i
+set regexpengine=1
 
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
