@@ -79,6 +79,8 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
+let mapleader = ','
+
 let g:lightline = {'colorscheme': 'gruvbox'}
 
 let g:fzf_buffers_jump = 1
