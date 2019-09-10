@@ -1,12 +1,10 @@
 #!/bin/sh
 
-for file in *; do
-  if [ "$file" != "install" ]; then
-    echo "$file"
-    cp "$file" "$HOME/.$file"
-  fi
+for i in editorconfig gemrc gitconfig gitignore_global vimrc zshrc; do
+  echo "Installing $i"
+  cp "$i" "$HOME/.$i"
 done
 
-for dir in backups swaps undo; do
-  mkdir -p "$HOME/.vim/$dir"
+for i in backups swaps undo; do
+  mkdir -p "$HOME/.vim/$i"
 done
