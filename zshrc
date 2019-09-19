@@ -37,7 +37,7 @@ ssh-tmux () {
 }
 
 clip () {
-  cat "$1" | xclip -sel clip
+  xclip -sel clip "$1"
 }
 
 venv () {
