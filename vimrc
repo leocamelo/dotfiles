@@ -64,6 +64,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 
 Plug 'elzr/vim-json',           {'for': 'json'}
