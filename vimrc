@@ -34,11 +34,11 @@ set smarttab
 set autoindent
 set smartindent
 
+set updatetime=300
+set shortmess+=c
+
 set foldmethod=syntax
 set foldlevel=99
-
-set complete-=i
-set regexpengine=1
 
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -52,6 +52,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
+Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
@@ -59,9 +61,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'maralla/completor.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'w0rp/ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -71,16 +71,19 @@ Plug 'elzr/vim-json',           {'for': 'json'}
 Plug 'vim-ruby/vim-ruby',       {'for': 'ruby'}
 Plug 'tpope/vim-rails',         {'for': 'ruby'}
 Plug 'elixir-lang/vim-elixir',  {'for': 'elixir'}
-Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'mxw/vim-jsx',             {'for': 'javascript'}
 Plug 'tbastos/vim-lua',         {'for': 'lua'}
+Plug 'rust-lang/rust.vim',      {'for': 'rust'}
 call plug#end()
 
 set background=dark
 colorscheme gruvbox
 
 let mapleader = ','
+
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:lightline = {'colorscheme': 'gruvbox'}
 
@@ -99,12 +102,8 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
-let g:completor_complete_options = 'menuone,noselect'
-let g:completor_ruby_omni_trigger = '([$\w]{1,}|\.[\w]*|::[$\w]*)$'
-let g:completor_python_binary = 'python3'
-
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
+let g:coc_global_extensions = ['solargraph', 'python', 'elixir', 'rls']
+call map(g:coc_global_extensions, {_, extension -> 'coc-' . extension})
 
 let g:vim_json_syntax_conceal = 0
 
@@ -119,6 +118,11 @@ nmap <space> za
 
 nmap <C-p> :Files<CR>
 nmap <C-b> :Buffers<CR>
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --color never -g "!.git/"'
