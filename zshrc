@@ -61,3 +61,5 @@ requirements () {
 epub () {
   pandoc -f epub -t html "$1" | elinks -dump -dump-color-mode 1 | less -R
 }
+
+eval "$(starship init zsh)"

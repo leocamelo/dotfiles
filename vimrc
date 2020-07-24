@@ -64,17 +64,21 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 
-Plug 'elzr/vim-json',           {'for': 'json'}
-Plug 'vim-ruby/vim-ruby',       {'for': 'ruby'}
-Plug 'tpope/vim-rails',         {'for': 'ruby'}
-Plug 'elixir-lang/vim-elixir',  {'for': 'elixir'}
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'mxw/vim-jsx',             {'for': 'javascript'}
-Plug 'tbastos/vim-lua',         {'for': 'lua'}
-Plug 'rust-lang/rust.vim',      {'for': 'rust'}
+Plug 'elzr/vim-json',               {'for': 'json'}
+Plug 'cespare/vim-toml',            {'for': 'toml'}
+Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
+Plug 'tpope/vim-rails',             {'for': 'ruby'}
+Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'}
+Plug 'tbastos/vim-lua',             {'for': 'lua'}
+Plug 'rust-lang/rust.vim',          {'for': 'rust'}
+Plug 'tpope/vim-fireplace',         {'for': 'clojure'}
+Plug 'luochen1990/rainbow',         {'for': 'clojure'}
+Plug 'pangloss/vim-javascript',     {'for': 'javascript'}
+Plug 'mxw/vim-jsx',                 {'for': 'javascript'}
+Plug 'leafgarland/typescript-vim',  {'for': 'typescript'}
+Plug 'peitalin/vim-jsx-typescript', {'for': 'typescript'}
 call plug#end()
 
 set background=dark
@@ -82,7 +86,6 @@ colorscheme gruvbox
 
 let mapleader = ','
 
-let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:lightline = {'colorscheme': 'gruvbox'}
@@ -102,8 +105,9 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
-let g:coc_global_extensions = ['solargraph', 'python', 'elixir', 'rls']
-call map(g:coc_global_extensions, {_, extension -> 'coc-' . extension})
+let g:coc_disable_startup_warning = 1
+let g:coc_global_extensions = ['coc-tabnine', 'coc-solargraph', 'coc-elixir',
+                              \'coc-python', 'coc-rls', 'coc-tsserver']
 
 let g:vim_json_syntax_conceal = 0
 
@@ -140,4 +144,9 @@ augroup NERDTree
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
   autocmd BufReadPost,FileReadPost * if &ft !=# 'qf' && exists('g:NERDTree') && g:NERDTree.IsOpen() | :NERDTreeClose | endif
   autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | q | endif
+augroup END
+
+augroup RainbowParentheses
+  autocmd!
+  autocmd FileType clojure RainbowToggle
 augroup END
