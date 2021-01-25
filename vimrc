@@ -62,7 +62,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
 
@@ -86,8 +85,6 @@ colorscheme gruvbox
 
 let mapleader = ','
 
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 let g:lightline = {'colorscheme': 'gruvbox'}
 
 let g:fzf_buffers_jump = 1
@@ -98,8 +95,6 @@ let NERDTreeMinimalUI = 1
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
-
-let g:gutentags_cache_dir = '~/.ctags'
 
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
