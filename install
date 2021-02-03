@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for i in editorconfig gemrc gitconfig gitignore_global vimrc zshrc; do
+for i in editorconfig gemrc gitconfig vimrc zshrc; do
   echo "Installing $i"
   cp "$i" "$HOME/.$i"
 done

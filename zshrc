@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 DEFAULT_USER="leocamelo"
 
-plugins=(git rails)
+plugins=(asdf git rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -16,6 +16,9 @@ alias gr="g push && g push --tag && g co master && g push"
 alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias sshconfig="$EDITOR ~/.ssh/config"
+
+alias rspec="bundle exec rspec"
+alias cap="bundle exec cap"
 
 up () {
   case "$(uname -s)" in
