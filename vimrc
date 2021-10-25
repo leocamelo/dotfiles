@@ -101,8 +101,8 @@ let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
 let g:coc_disable_startup_warning = 1
-let g:coc_global_extensions = ['coc-tabnine', 'coc-solargraph', 'coc-elixir',
-                              \'coc-python', 'coc-rls', 'coc-tsserver']
+let g:coc_node_path = '~/.nvm/versions/node/v14.18.1/bin/node'
+let g:coc_global_extensions = ['coc-tabnine', 'coc-elixir', 'coc-tsserver', 'coc-rust-analyzer']
 
 let g:vim_json_syntax_conceal = 0
 
@@ -131,6 +131,12 @@ elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -l -g "" --hidden --no-color --ignore .git'
   nmap <C-f> :Grepper -tool ag<CR>
   nmap <C-h> :Grepper -tool ag -cword -noprompt<CR>
+endif
+
+if executable('jq')
+  nmap <C-j> :%!jq .<CR>
+else
+  nmap <C-j> :%!python -m json.tool<CR>
 endif
 
 augroup NERDTree
