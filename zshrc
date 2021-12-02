@@ -1,6 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
 DEFAULT_USER="leocamelo"
 
 plugins=(git rails)
@@ -8,7 +7,7 @@ plugins=(git rails)
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="vim"
-export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
 alias gf="g flow"
 alias gr="g push && g push --tag && g co master && g push"

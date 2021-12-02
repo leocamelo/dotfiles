@@ -64,6 +64,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'elzr/vim-json',               {'for': 'json'}
 Plug 'cespare/vim-toml',            {'for': 'toml'}
@@ -101,7 +102,7 @@ let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
 let g:coc_disable_startup_warning = 1
-let g:coc_node_path = '~/.nvm/versions/node/v14.18.1/bin/node'
+let g:coc_node_path = '~/.nvm/versions/node/v16.13.1/bin/node'
 let g:coc_global_extensions = ['coc-tabnine', 'coc-elixir', 'coc-tsserver', 'coc-rust-analyzer']
 
 let g:vim_json_syntax_conceal = 0
