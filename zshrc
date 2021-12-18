@@ -61,4 +61,8 @@ epub () {
   pandoc -f epub -t html "$1" | elinks -dump -dump-color-mode 1 | less -R
 }
 
+docker-compose-dev () {
+  docker-compose -f docker-compose-dev.yml $1
+}
+
 eval "$(starship init zsh)"
