@@ -10,25 +10,29 @@ export EDITOR="vim"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
 alias gf="g flow"
-alias gr="g push && g push --tag && g co master && g push"
 
 alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias sshconfig="$EDITOR ~/.ssh/config"
 
+gfr () {
+  g co master
+  g pull
+
+  gf release start "$1"
+  gf release finish "$1"
+
+  g push
+  g push --tag
+
+  g co master
+  g push
+}
+
 up () {
-  case "$(uname -s)" in
-    Darwin)
-      brew update
-      brew upgrade
-      brew cleanup
-      ;;
-    Linux)
-      sudo apt update
-      sudo apt upgrade -y
-      sudo apt autoremove -y
-      ;;
-  esac
+  sudo dnf upgrade -y
+  sudo dnf autoremove -y
+  flatpak update -y
 }
 
 ssh-tmux () {
@@ -36,7 +40,7 @@ ssh-tmux () {
 }
 
 clip () {
-  xclip -sel clip "$1"
+  xclip -sel clip "$@"
 }
 
 venv () {
@@ -62,7 +66,7 @@ epub () {
 }
 
 docker-compose-dev () {
-  docker-compose -f docker-compose-dev.yml $1
+  docker-compose -f docker-compose-dev.yml "$@"
 }
 
 eval "$(starship init zsh)"

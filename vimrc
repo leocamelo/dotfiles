@@ -54,13 +54,13 @@ Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
 Plug 'w0rp/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
+Plug 'junegunn/fzf', {'do': {-> fzf#install()}}
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-endwise'
@@ -70,7 +70,7 @@ Plug 'elzr/vim-json',               {'for': 'json'}
 Plug 'cespare/vim-toml',            {'for': 'toml'}
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'}
 Plug 'tpope/vim-rails',             {'for': 'ruby'}
-Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'}
+Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'}
 Plug 'tbastos/vim-lua',             {'for': 'lua'}
 Plug 'rust-lang/rust.vim',          {'for': 'rust'}
 Plug 'tpope/vim-fireplace',         {'for': 'clojure'}
@@ -102,7 +102,7 @@ let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
 let g:coc_disable_startup_warning = 1
-let g:coc_node_path = '~/.nvm/versions/node/v16.13.1/bin/node'
+let g:coc_node_path = '~/.nvm/versions/node/v16.15.0/bin/node'
 let g:coc_global_extensions = ['coc-tabnine', 'coc-elixir', 'coc-tsserver', 'coc-rust-analyzer']
 
 let g:vim_json_syntax_conceal = 0
