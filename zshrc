@@ -10,10 +10,14 @@ export EDITOR="vim"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
 alias gf="g flow"
+alias open="xdg-open"
 
 alias zshconfig="$EDITOR ~/.zshrc"
 alias vimconfig="$EDITOR ~/.vimrc"
 alias sshconfig="$EDITOR ~/.ssh/config"
+
+alias nvimconfig="(cd ~/.config/nvim/lua/custom && nvim)"
+alias gsort="gsettings set org.gnome.shell app-picker-layout \"[]\""
 
 gfr () {
   g co master
@@ -22,9 +26,7 @@ gfr () {
   gf release start "$1"
   gf release finish "$1"
 
-  g push
-  g push --tag
-
+  g push --follow-tags
   g co master
   g push
 }
