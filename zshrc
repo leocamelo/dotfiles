@@ -6,17 +6,18 @@ plugins=(git rails)
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR="vim"
+export EDITOR="lvim"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
 alias gf="g flow"
 alias open="xdg-open"
 
-alias zshconfig="$EDITOR ~/.zshrc"
-alias vimconfig="$EDITOR ~/.vimrc"
-alias sshconfig="$EDITOR ~/.ssh/config"
+alias e="$EDITOR"
+alias zshconfig="e ~/.zshrc"
+alias vimconfig="e ~/.vimrc"
+alias sshconfig="e ~/.ssh/config"
+alias lvimconfig="e ~/.config/lvim/config.lua"
 
-alias nvimconfig="(cd ~/.config/nvim/lua/custom && nvim)"
 alias gsort="gsettings set org.gnome.shell app-picker-layout \"[]\""
 
 gfr () {
@@ -34,6 +35,7 @@ gfr () {
 up () {
   sudo dnf upgrade -y
   sudo dnf autoremove -y
+  flatpak uninstall --unused
   flatpak update -y
 }
 

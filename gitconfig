@@ -1,14 +1,18 @@
 [core]
-  editor = vim
+  editor = lvim
+
 [init]
   defaultBranch = main
+
 [push]
   default = current
+
 [alias]
   aa = add -A
   co = checkout
   st = status -s
   cm = commit -m
+
 [user]
   email = leonardocamelo.nave@gmail.com
   name = leocamelo
