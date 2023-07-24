@@ -102,7 +102,7 @@ let g:ale_lint_on_save = 1
 let g:ale_elixir_credo_strict = 1
 
 let g:coc_disable_startup_warning = 1
-let g:coc_node_path = '~/.nvm/versions/node/v18.12.1/bin/node'
+let g:coc_node_path = '~/.asdf/shims/node'
 let g:coc_global_extensions = ['coc-tabnine', 'coc-elixir', 'coc-tsserver', 'coc-rust-analyzer']
 
 let g:vim_json_syntax_conceal = 0
