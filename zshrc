@@ -9,7 +9,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR="lvim"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
 
-alias gf="g flow"
 alias open="xdg-open"
 
 alias e="$EDITOR"
@@ -19,21 +18,15 @@ alias sshconfig="e ~/.ssh/config"
 
 alias lvimconfig="e ~/.config/lvim/config.lua"
 
-alias docker-compose="docker compose"
+alias docker-compose="podman-compose"
 alias docker-compose-dev="docker-compose -f docker-compose-dev.yml"
-
-alias gsort="gsettings set org.gnome.shell app-picker-layout \"[]\""
 
 gfr () {
   g co master
   g pull
-
-  gf release start "$1"
-  gf release finish "$1"
-
+  g merge develop
+  g tag "$1"
   g push --follow-tags
-  g co master
-  g push
 }
 
 up () {
