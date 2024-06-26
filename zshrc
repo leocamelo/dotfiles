@@ -6,18 +6,15 @@ plugins=(asdf git rails)
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR="lvim"
+export EDITOR="nvim"
 export SSH_KEY_PATH="$HOME/.ssh/id_ed25519"
-
-alias open="xdg-open"
 
 alias e="$EDITOR"
 alias zshconfig="e ~/.zshrc"
 alias vimconfig="e ~/.vimrc"
 alias sshconfig="e ~/.ssh/config"
 
-alias lvimconfig="e ~/.config/lvim/config.lua"
-
+alias docker="podman"
 alias docker-compose="podman-compose"
 alias docker-compose-dev="docker-compose -f docker-compose-dev.yml"
 
@@ -26,22 +23,30 @@ gfr () {
   g pull
   g merge develop
   g tag "$1"
-  g push --follow-tags
+  g push
+  g push --tags
+  g co develop
 }
 
 up () {
-  sudo dnf upgrade -y
-  sudo dnf autoremove -y
-  flatpak uninstall --unused
-  flatpak update -y
-}
-
-ssh-tmux () {
-  ssh "$1" -t -- /bin/bash -c "tmux has && exec tmux attach || exec tmux"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew update
+    brew upgrade
+    brew cleanup
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sudo dnf upgrade -y
+    sudo dnf autoremove -y
+    flatpak uninstall --unused
+    flatpak update -y
+  fi
 }
 
 clip () {
-  xclip -sel clip "$@"
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    cat "$@" | pbcopy
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    xclip -sel clip "$@"
+  fi
 }
 
 venv () {
@@ -62,11 +67,7 @@ requirements () {
   done
 }
 
-epub () {
-  pandoc -f epub -t html "$1" | elinks -dump -dump-color-mode 1 | less -R
-}
-
-nvidia-run () {
+nvrun () {
   DRI_PRIME=1 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
 }
 
